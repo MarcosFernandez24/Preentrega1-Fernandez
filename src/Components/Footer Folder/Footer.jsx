@@ -1,9 +1,12 @@
-import React from "react";
+import ItemListContainer from "../Navbar Folder/ItemListContainer";
 
 const Footer = () => {
   return (
     <div>
-      <h4>Footer</h4>
+      <ItemListContainer
+        bienvenida={"Hola Facundo"}
+        saludar={"Bienvenido a mi proyecto de React JS"}
+      />
     </div>
   );
 };

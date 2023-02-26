@@ -1,7 +1,7 @@
 const Logo = () => {
   return (
     <div>
-      <h4>Logoo</h4>
+      <h3>E-Complay</h3>
     </div>
   );
 };

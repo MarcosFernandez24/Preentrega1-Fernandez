@@ -1,7 +1,10 @@
+import { BsFillCartFill } from "react-icons/bs";
+
 const CartWidget = () => {
   return (
     <div>
-      <h3>Carrito</h3>
+      <span>Vacio</span>
+      <BsFillCartFill color="purple" size={30} />
     </div>
   );
 };
