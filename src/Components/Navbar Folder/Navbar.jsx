@@ -1,5 +1,5 @@
-import CartWidget from "./CartWidget";
-import Logo from "./Logo";
+import CartWidget from "./CartWidget/CartWidget";
+import Logo from "./Logo/Logo";
 import styles from "./Navbar.module.css";
 
 

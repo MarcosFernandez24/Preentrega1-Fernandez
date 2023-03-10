@@ -1,4 +1,4 @@
-import ItemListContainer from "../Navbar Folder/ItemListContainer";
+import ItemListContainer from "../Navbar Folder/ItemListContainer/ItemListContainer";
 
 const Footer = () => {
   return (

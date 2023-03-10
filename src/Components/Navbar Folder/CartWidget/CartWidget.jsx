@@ -3,7 +3,7 @@ import { BsFillCartFill } from "react-icons/bs";
 const CartWidget = () => {
   return (
     <div>
-      <BsFillCartFill color="purple" size={30} />
+      <BsFillCartFill color="grey" size={30} />
     </div>
   );
 };
