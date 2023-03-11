@@ -1,7 +1,9 @@
+import { GiConsoleController } from "react-icons/gi";
+
 const Logo = () => {
   return (
     <div>
-      <h3>E-Complay</h3>
+      <GiConsoleController size={50} color="black" />
     </div>
   );
 };
