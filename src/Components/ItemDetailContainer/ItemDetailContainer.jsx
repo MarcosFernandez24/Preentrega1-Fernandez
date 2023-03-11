@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import { productos } from "../Productos/ProductosMock";
 
 const ItemDetailContainer = () => {
@@ -17,7 +19,9 @@ const ItemDetailContainer = () => {
       <h2>{productSelected.precio} USD$</h2>
       <img src={productSelected.imgSrc} alt="" />
       <h3>{productSelected.descripcion}</h3>
-      <button>agregar al carrito</button>
+      <Button variant="contained" color="error">
+        Agregar al carrito
+      </Button>
     </div>
   );
 };

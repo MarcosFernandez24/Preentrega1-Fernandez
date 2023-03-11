@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import { productos } from "../../Productos/ProductosMock";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 const ItemListContainer = () => {
   const [itemss, setItems] = useState([]);
 
+  const { category } = useParams();
+  console.log(category);
+
+  const productoPorCategoria = productos.filter(
+    (elemento) => elemento.categoria === category
+  );
+
   useEffect(() => {
     const listaDeProductos = new Promise((resolve, reject) => {
-      resolve(productos);
+      resolve(category? productoPorCategoria : productos);
     });
     listaDeProductos
       .then((res) => {
@@ -15,7 +23,7 @@ const ItemListContainer = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [category]);
 
   console.log(itemss);
 

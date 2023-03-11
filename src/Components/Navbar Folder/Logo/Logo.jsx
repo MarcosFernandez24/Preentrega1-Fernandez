@@ -3,7 +3,7 @@ import { GiConsoleController } from "react-icons/gi";
 const Logo = () => {
   return (
     <div>
-      <GiConsoleController size={50} color="black" />
+      <GiConsoleController size={70} color="black" />
     </div>
   );
 };

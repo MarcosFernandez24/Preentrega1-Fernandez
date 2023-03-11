@@ -6,6 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 const CarritoLink = () => {
   return (
@@ -30,7 +32,9 @@ const CarritoLink = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <button>Comprar</button>
+      <Button variant="contained" color="error">
+        comprar
+      </Button>
     </div>
   );
 };

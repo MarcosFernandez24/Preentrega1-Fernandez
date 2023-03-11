@@ -11,10 +11,12 @@ const Navbar = () => {
       </Link>
 
       <ul className={styles.containerList}>
-        <Link to="/">
-          <li>Todos</li>
-        </Link>
+        <Link to="/">Todos</Link>
 
+        <Link to="/category/Mundo Abierto">Mundo Abierto</Link>
+        <Link to="/category/Soulslike">Soulslike</Link>
+        <Link to="/category/Horror Survival">Horror Survival</Link>
+        <Link to="/category/Mazmorras">Mazmorras</Link>
         <Link to="/soporte">
           <li>Soporte</li>
         </Link>
