@@ -3,29 +3,31 @@ import { productos } from "../../Productos/ProductosMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 const ItemListContainer = () => {
-  const [itemss, setItems] = useState([]);
+  const [itemss, setItemss] = useState([]);
 
   const { category } = useParams();
-  console.log(category);
 
-  const productoPorCategoria = productos.filter(
-    (elemento) => elemento.categoria === category
-  );
+  let productoPorCategoria = undefined;
+  if (category) {
+    productoPorCategoria = productos.filter(
+      (elemento) => elemento.categoria === category
+    );
+  } else {
+    productoPorCategoria = productos;
+  }
 
   useEffect(() => {
     const listaDeProductos = new Promise((resolve, reject) => {
-      resolve(category? productoPorCategoria : productos);
+      resolve(category ? productoPorCategoria : productos);
     });
     listaDeProductos
       .then((res) => {
-        setItems(res);
+        setItemss(res);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [category]);
-
-  console.log(itemss);
 
   return (
     <div>

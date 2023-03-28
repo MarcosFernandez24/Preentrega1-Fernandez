@@ -14,11 +14,7 @@ const Item = ({ Elementos }) => {
       sx={{ maxWidth: 200, maxHeight: 300 }}
       className={styles.separarCards}
     >
-      <CardMedia
-        sx={{ height: 200 }}
-        image={Elementos.imgSrc}
-        title="green iguana"
-      />
+      <CardMedia sx={{ height: 200 }} image={Elementos.imgSrc} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {Elementos.nombre}

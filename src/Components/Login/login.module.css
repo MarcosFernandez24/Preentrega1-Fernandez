@@ -1,0 +1,6 @@
+.acomodarLogin {
+  padding: 24px;
+  flex-direction: column;
+  margin: 1em;
+  min-width: 200px;
+}
