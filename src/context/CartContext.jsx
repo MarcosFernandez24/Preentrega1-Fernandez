@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import * as React from "react";
 
 export const CartContext = createContext();
 
@@ -13,7 +14,7 @@ const CartContextProvider = ({ children }) => {
         if (elemento.id === product.id) {
           return {
             ...elemento,
-            quantity: elemento.quantity + product.quantity,
+            quantity: product.quantity,
           };
         } else {
           return elemento;
@@ -40,17 +41,24 @@ const CartContextProvider = ({ children }) => {
     }, 0);
 
     return totalInCart;
-
-    
   };
-  const mutiplicadorDePrecio = () =>{
+  const mutiplicadorDePrecio = () => {
+    let totalPrice = cart.reduce((acc, elemento) => {
+      return acc + elemento.quantity * elemento.precio;
+    }, 0);
 
-    let totalPrice = cart.reduce((acc, elemento)=>{
-      return acc + (elemento.quantity * elemento.precio)
-    }, 0)
+    return totalPrice;
+  };
 
-return totalPrice
+  
+  const eliminarProductox1 = (id) => {
+    const newCart = cart.filter((element) => element.id !== id);
+    setCart(newCart);
+  };
+  const cantidadXId = (id) =>{
 
+   const productQuant = cart.find((element)=> element.id === id)
+return productQuant?.quantity
   }
 
   let data = {
@@ -58,7 +66,9 @@ return totalPrice
     addToCart,
     vaciarCarrito,
     cartTotalQuantity,
-    mutiplicadorDePrecio 
+    mutiplicadorDePrecio,
+    eliminarProductox1,
+    cantidadXId
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { productos } from "../../Productos/ProductosMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import PacmanLoader from "react-spinners/PacmanLoader";
 const ItemListContainer = () => {
   const [itemss, setItemss] = useState([]);
 
@@ -18,7 +19,9 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const listaDeProductos = new Promise((resolve, reject) => {
-      resolve(category ? productoPorCategoria : productos);
+      setTimeout(() => {
+        resolve(category ? productoPorCategoria : productos);
+      }, 2000);
     });
     listaDeProductos
       .then((res) => {
@@ -31,7 +34,16 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      <ItemList itemss={itemss} />
+      {itemss.length > 0 ? (
+        <ItemList itemss={itemss} />
+      ) : (
+        <PacmanLoader
+          color={"orangered"}
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      )}
     </div>
   );
 };

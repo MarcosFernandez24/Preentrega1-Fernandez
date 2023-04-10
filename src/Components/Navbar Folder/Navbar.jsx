@@ -17,6 +17,7 @@ const Navbar = () => {
         <Link to="/category/Soulslike">Soulslike</Link>
         <Link to="/category/Horror Survival">Horror Survival</Link>
         <Link to="/category/Mazmorras">Mazmorras</Link>
+        <Link to="/category/SandBox">SandBox</Link>
         <Link to="/login">Login</Link>
         <Link to="/soporte">
           <li>Soporte</li>

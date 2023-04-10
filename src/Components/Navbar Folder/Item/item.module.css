@@ -1,6 +1,6 @@
 .separarCards {
   padding: 24px;
-  flex-direction: column;
-  margin: 1em;
+  margin: 2em;
   min-width: 200px;
+  max-height: 300px;
 }
