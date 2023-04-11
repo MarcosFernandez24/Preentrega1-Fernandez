@@ -1,35 +1,40 @@
 import { useEffect, useState } from "react";
-import { productos } from "../../Productos/ProductosMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
-const ItemListContainer = () => {
-  const [itemss, setItemss] = useState([]);
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
+const ItemListContainer = () => {
   const { category } = useParams();
 
-  let productoPorCategoria = undefined;
-  if (category) {
-    productoPorCategoria = productos.filter(
-      (elemento) => elemento.categoria === category
-    );
-  } else {
-    productoPorCategoria = productos;
-  }
+  const [itemss, setItemss] = useState([]);
 
   useEffect(() => {
-    const listaDeProductos = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(category ? productoPorCategoria : productos);
-      }, 2000);
-    });
-    listaDeProductos
-      .then((res) => {
-        setItemss(res);
-      })
-      .catch((error) => {
-        console.log(error);
+    const itemsCollection = collection(db, "Productos(Juegos)");
+
+    if (category) {
+      const q = query(itemsCollection, where("categoria", "==", category));
+      getDocs(q).then((res) => {
+        let products = res.docs.map((product) => {
+          return {
+            ...product.data(),
+            id: product.id,
+          };
+        });
+        setItemss(products);
       });
+    } else {
+      getDocs(itemsCollection).then((res) => {
+        let products = res.docs.map((product) => {
+          return {
+            ...product.data(),
+            id: product.id,
+          };
+        });
+        setItemss(products);
+      });
+    }
   }, [category]);
 
   return (

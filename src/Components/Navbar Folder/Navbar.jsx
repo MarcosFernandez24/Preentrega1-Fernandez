@@ -1,9 +1,27 @@
+import { useEffect, useState } from "react";
 import CartWidget from "./CartWidget/CartWidget";
 import Logo from "./Logo/Logo";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
 const Navbar = () => {
+  const [categoryList, setCategoryList] = useState([]);
+
+  useEffect(() => {
+    const itemsCollection = collection(db, "Categorias");
+    getDocs(itemsCollection).then((res) => {
+      let arrayDeCategorias = res.docs.map((categoria) => {
+        return {
+          ...categoria.data(),
+          id: categoria.id,
+        };
+      });
+      setCategoryList(arrayDeCategorias);
+    });
+  }, []);
+
   return (
     <div className={styles.navbarContainer}>
       <Link to="/">
@@ -11,13 +29,13 @@ const Navbar = () => {
       </Link>
 
       <ul className={styles.containerList}>
-        <Link to="/">Todos</Link>
-
-        <Link to="/category/Mundo Abierto">Mundo Abierto</Link>
-        <Link to="/category/Soulslike">Soulslike</Link>
-        <Link to="/category/Horror Survival">Horror Survival</Link>
-        <Link to="/category/Mazmorras">Mazmorras</Link>
-        <Link to="/category/SandBox">SandBox</Link>
+        {categoryList.map((categoria) => {
+          return (
+            <Link key={categoria.id} to={categoria.path}>
+              {categoria.titulo}
+            </Link>
+          );
+        })}
         <Link to="/login">Login</Link>
         <Link to="/soporte">
           <li>Soporte</li>
