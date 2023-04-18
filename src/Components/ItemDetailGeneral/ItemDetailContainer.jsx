@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemCount from "../itemCount/itemCount";
+
 import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
 import { getDoc, collection, doc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
+import ItemDetail from "./ItemDetail";
+import ItemCount from "./itemCount";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -45,18 +47,7 @@ const ItemDetailContainer = () => {
   let cantidadQ = cantidadXId(Number(id));
 
   return (
-    <div>
-      <h1>{productSelected.nombre}</h1>
-      <h2>{productSelected.precio}$</h2>
-      <img src={productSelected.imgSrc} alt="" />
-      <h3>{productSelected.descripcion}</h3>
-
-      <ItemCount
-        stock={productSelected.stock}
-        onAdd={onAdd}
-        initial={cantidadQ}
-      />
-    </div>
+    <ItemDetail productSelected={productSelected} onAdd={onAdd} cantidadQ={cantidadQ}/>
   );
 };
 

@@ -50,16 +50,14 @@ const CartContextProvider = ({ children }) => {
     return totalPrice;
   };
 
-  
   const eliminarProductox1 = (id) => {
     const newCart = cart.filter((element) => element.id !== id);
     setCart(newCart);
   };
-  const cantidadXId = (id) =>{
-
-   const productQuant = cart.find((element)=> element.id === id)
-return productQuant?.quantity
-  }
+  const cantidadXId = (id) => {
+    const productQuant = cart.find((element) => element.id === id);
+    return productQuant?.quantity;
+  };
 
   let data = {
     cart,
@@ -68,7 +66,7 @@ return productQuant?.quantity
     cartTotalQuantity,
     mutiplicadorDePrecio,
     eliminarProductox1,
-    cantidadXId
+    cantidadXId,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

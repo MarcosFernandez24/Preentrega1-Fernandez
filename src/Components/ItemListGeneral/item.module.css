@@ -3,4 +3,6 @@
   margin: 2em;
   min-width: 200px;
   max-height: 300px;
+  flex-wrap: wrap;
+  direction: row;
 }

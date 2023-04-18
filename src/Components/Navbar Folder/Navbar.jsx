@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CartWidget from "./CartWidget/CartWidget";
+import CartWidget from "./CartWidget";
 import Logo from "./Logo/Logo";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
@@ -36,7 +36,6 @@ const Navbar = () => {
             </Link>
           );
         })}
-        <Link to="/login">Login</Link>
         <Link to="/soporte">
           <li>Soporte</li>
         </Link>

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import PacmanLoader from "react-spinners/PacmanLoader";
-import { db } from "../../../firebaseConfig";
+import { db } from "../../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
@@ -37,20 +36,7 @@ const ItemListContainer = () => {
     }
   }, [category]);
 
-  return (
-    <div>
-      {itemss.length > 0 ? (
-        <ItemList itemss={itemss} />
-      ) : (
-        <PacmanLoader
-          color={"orangered"}
-          size={50}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      )}
-    </div>
-  );
+  return <ItemList itemss={itemss} />;
 };
 
 export default ItemListContainer;
