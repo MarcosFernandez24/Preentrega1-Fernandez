@@ -35,6 +35,7 @@ const FormCheckout = ({
     cart.map((product) => {
       let orderDoc = doc(db, "Productos(Juegos)", product.id);
       updateDoc(orderDoc, { stock: product.stock - product.quantity });
+      return product;
     });
   };
 

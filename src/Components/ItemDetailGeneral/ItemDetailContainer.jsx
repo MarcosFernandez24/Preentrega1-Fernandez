@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { getDoc, collection, doc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import ItemDetail from "./ItemDetail";
-import ItemCount from "./itemCount";
+
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
