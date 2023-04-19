@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import FormCheckoutContainer from "./FormCheckoutContainer";
+import Swal from "sweetalert2";
 
 const FormCheckout = ({
   cart,
@@ -11,24 +12,37 @@ const FormCheckout = ({
 }) => {
   const [userData, setUserData] = useState({
     nombre: "",
+    apellido: "",
     email: "",
+    verificacion: "",
     telefono: "",
   });
+
+  let order = {
+    buyer: userData,
+    items: cart,
+    total: mutiplicadorDePrecio(),
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let order = {
-      buyer: userData,
-      items: cart,
-      total: mutiplicadorDePrecio(),
-    };
-
     let orderCollection = collection(db, "orders");
     addDoc(orderCollection, order)
       .then((res) => {
-        setOrderId(res.id);
-        vaciarCarrito();
+        if (
+          userData.email === userData.verificacion ||
+          userData.verificacion === ""
+        ) {
+          setOrderId(res.id);
+          vaciarCarrito();
+        } else {
+          Swal.fire(
+            "Ups",
+            "El email puesto no coincide con el original",
+            "error"
+          );
+        }
       })
       .catch((err) => console.log(err));
 
