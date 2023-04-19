@@ -1,0 +1,12 @@
+.productStyle {
+  background-color: orangered;
+  border-style: double;
+  border-color: black;
+  border-width: 5px;
+  right: 2000px;
+}
+
+.acomodarDescripcion {
+  max-width: 1000px;
+  max-height: 1000px;
+}

@@ -1,15 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CarritoLink from "./Components/CarritoLink/CarritoLink";
-import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
-import ItemListContainer from "./Components/Navbar Folder/ItemListContainer/ItemListContainer";
+import CarritoLink from "./Components/CarritoLinkGeneral/CarritoLink";
+import ItemDetailContainer from "./Components/ItemDetailGeneral/ItemDetailContainer";
+
+import ItemListContainer from "./Components/ItemListGeneral/ItemListContainer";
 import Navbar from "./Components/Navbar Folder/Navbar";
 import RutaNoValida from "./Components/RutaNoValida/RutaNoValida";
 import Soporte from "./Components/Soporte/Soporte";
+import CartContextProvider from "./context/CartContext";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
+      <CartContextProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
@@ -19,8 +21,8 @@ function App() {
           <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
           <Route path="*" element={<RutaNoValida />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </CartContextProvider>
+    </BrowserRouter>
   );
 }
 

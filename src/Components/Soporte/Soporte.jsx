@@ -7,7 +7,7 @@ const Soporte = () => {
     <div>
       <h1>Contacto:</h1>
       <h2>
-        <AiFillGithub size={40} /> 
+        <AiFillGithub size={40} />
         https://github.com/MarcosFernandez24
       </h2>
     </div>

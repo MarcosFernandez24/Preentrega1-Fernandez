@@ -1,26 +1,33 @@
-import CartWidget from "./CartWidget/CartWidget";
-import Logo from "./Logo/Logo";
-import styles from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import CartWidget from "./CartWidget";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+import NavbarContainer from "./NavbarContainer";
 
 const Navbar = () => {
+  const [categoryList, setCategoryList] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const itemsCollection = collection(db, "Categorias");
+    getDocs(itemsCollection).then((res) => {
+      let arrayDeCategorias = res.docs.map((categoria) => {
+        return {
+          ...categoria.data(),
+          id: categoria.id,
+        };
+      });
+      setCategoryList(arrayDeCategorias);
+    });
+  }, []);
+
   return (
-    <div className={styles.navbarContainer}>
-      <Link to="/">
-        <Logo />
-      </Link>
-
-      <ul className={styles.containerList}>
-        <Link to="/">Todos</Link>
-
-        <Link to="/category/Mundo Abierto">Mundo Abierto</Link>
-        <Link to="/category/Soulslike">Soulslike</Link>
-        <Link to="/category/Horror Survival">Horror Survival</Link>
-        <Link to="/category/Mazmorras">Mazmorras</Link>
-        <Link to="/soporte">
-          <li>Soporte</li>
-        </Link>
-      </ul>
+    <div>
+      <NavbarContainer
+        setOpen={setOpen}
+        open={open}
+        categoryList={categoryList}
+      />
       <CartWidget />
     </div>
   );

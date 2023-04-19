@@ -15,3 +15,15 @@
   align-items: center;
   gap: 30px;
 }
+
+.spider {
+  height: 30px;
+  width: 30px;
+  color: black;
+}
+
+.eccommplayLogo {
+  color: red;
+  height: 10px;
+  width: 10px;
+}

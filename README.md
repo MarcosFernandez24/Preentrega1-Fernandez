@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# ECommplay: Tienda de Juegos Online
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Como clonar el repositorio:
 
-## Available Scripts
+```
+git hub clone https://github.com/MarcosFernandez24/ProyectoFinal-Fernandez.git
+```
 
-In the project directory, you can run:
+### Elegi hacer un eccommerce de juegos porque habia aplicado lo mismo para el proyecto de JavaScript y me hacia mucha ilusion hacer lo mismo de vuelta y con el mismo nombre, cambio mucho la estilizacion de la pagina ya que para la que hice anterior usaba Bootstrap y se veia muy diferente. Volvi a aplicar SweetAlert 2 como en el anterior proyecto aprovechando los conocimientos previos para volver a usarlos. El funcionamiento de la pagina no es muy complejo realmente, tiene un menu desplegable con las categorias y un apartado llamado soporte en el cual se encuentra un enlace directo a mi GitHub. Se puede entrar en cualquier categoria o a un producto mostrado en la parte de "Todos" y al elegirlo habra que volver al carrito para poder finalizar la compra, la misma va a pedir:
 
-### `npm start`
+- nombre
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- email
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- verificacion del email
 
-### `npm test`
+- numero de telefono
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### todos estos campos son obligatorios, al completar estos datos se le dara al cliente la orden de compra.
 
-### `npm run build`
+### Librerias utilizadas(y agradecimientos a):
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Sweet Alert 2
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+https://sweetalert2.github.io
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React Router
 
-### `npm run eject`
+```
+https://reactrouter.com/en/main
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React Icons
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+https://react-icons.github.io/react-icons/
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Material UI
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+https://mui.com
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![](https://res.cloudinary.com/dt52umrsh/image/upload/v1681841596/CrGBxCBXEAAwLlC_ne7ufd.jpg)
